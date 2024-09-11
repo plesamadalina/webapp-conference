@@ -33,43 +33,44 @@ export const CONFERENCE_LIST_QUERY = gql`
   ${Fragments.status}
 `
 export const CONFERENCE_QUERY = gql`
-  query conference($id: int!, $isNew: Boolean!, $userEmail: String!) {
+  query conference($id: Int!, $isNew: Boolean!) {
     conference(id: $id) @skip(if: $isNew) {
       ...conference
-      speakers {
-        ...detailedSpeaker
-      }
-      location {
-        ...detailedLocation
-      }
       type {
         ...type
       }
       category {
         ...category
       }
+      location {
+        ...detailedLocation
+      }
+      speakers {
+        ...detailedSpeaker
+      }
     }
-
     typeList {
       ...type
     }
     categoryList {
-      ...categoryList
+      ...category
     }
     cityList {
-      ...cityList
-    }
-    countryList {
-      ...countryList
+      ...city
     }
     countyList {
-      ...countyList
+      ...county
+    }
+    countryList {
+      ...country
     }
   }
-
   ${Fragments.conference}
-  ${Fragments.detailedSpeaker}
-  ${Fragments.detailedLocation}
   ${Fragments.type}
   ${Fragments.category}
+  ${Fragments.detailedSpeaker}
+  ${Fragments.detailedLocation}
+  ${Fragments.city}
+  ${Fragments.county}
+  ${Fragments.country}
 `

@@ -82,6 +82,27 @@ const Fragments = {
       id
       name
     }
+  `,
+
+  city: gql`
+    fragment city on City {
+      id
+      name
+    }
+  `,
+
+  county: gql`
+    fragment county on County {
+      id
+      name
+    }
+  `,
+
+  country: gql`
+    fragment country on Country {
+      id
+      name
+    }
   `
 }
 
