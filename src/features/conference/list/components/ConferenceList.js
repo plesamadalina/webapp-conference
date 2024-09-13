@@ -6,6 +6,9 @@ import { Grid } from '@mui/material'
 const ConferenceList = props => {
   const { conferences, onChangeAttendeeStatus } = props
 
+
+  
+
   return (
     <Grid container spacing={2}>
       {conferences?.map(conference => (

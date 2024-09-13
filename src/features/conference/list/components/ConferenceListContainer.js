@@ -58,6 +58,8 @@ const ConferenceListContainer = () => {
     [changeAttendanceStatus, email]
   )
 
+  
+
   if (loading) {
     return <FakeText lines={10} />
   }
