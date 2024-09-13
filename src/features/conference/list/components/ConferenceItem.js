@@ -8,7 +8,7 @@ import { useEmail } from 'hooks/useEmail'
 import { useNavigate } from 'react-router-dom'
 
 const ConferenceItem = props => {
-  const { conference } = props
+  const { conference, onChangeAttendeeStatus} = props
   const navigate = useNavigate()
   const [email] = useEmail()
   const { name, organizerEmail, speakers, location, id } = conference
@@ -20,13 +20,15 @@ const ConferenceItem = props => {
 
   return (
     <Card title={title} subheader={<ConferenceSubtitle speaker={speaker} location={location} />}>
-      <ConferenceContent conference={conference} />
+      <ConferenceContent conference={conference} onChangeAttendeeStatus= {onChangeAttendeeStatus}  />
     </Card>
   )
 }
 
 ConferenceItem.propTypes = {
-  conference: PropTypes.object.isRequired
+  conference: PropTypes.object.isRequired,
+  onChangeAttendeeStatus: PropTypes.func.isRequired
+
 }
 
 export default ConferenceItem
