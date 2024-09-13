@@ -41,7 +41,14 @@ export const reducer = (state, action) => {
       const minSpeakerId = Math.min(...state.speakers.map(speaker => speaker.id), 0)
       return modify(
         'speakers',
-        append({ id: minSpeakerId - 1, name: emptyString, nationality: emptyString, rating: emptyString, isMainSpeaker: false }),
+        append({
+          id: minSpeakerId - 1,
+          name: emptyString,
+          nationality: emptyString,
+          rating: emptyString,
+          phoneNumber: emptyString,
+          isMainSpeaker: false
+        }),
         state
       )
     }
@@ -49,6 +56,7 @@ export const reducer = (state, action) => {
       return modifyPath(['speakers', action.index, 'name'], () => action.payload, state)
     case 'nationality':
     case 'rating':
+    case 'phoneNumber':
     case 'isMainSpeaker':
       return modifyPath(['speakers', action.index, action.type], () => action.payload, state)
     case 'deleteSpeaker':

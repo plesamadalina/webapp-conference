@@ -27,6 +27,9 @@ const ConferenceSpeakerData = props => {
       <Td>
         <TextField fullWidth isNumeric value={rating} onChange={handleDispatch('rating')} />
       </Td>
+      <Td>
+        <TextField fullWidth value={phoneNumber} onChange={handleDispatch('phoneNumber')} />
+      </Td>
 
       <TdCenteredButton>
         <Checkbox color='secondary' size='small' checked={isMainSpeaker} onChange={handleCheckboxDispatch} />

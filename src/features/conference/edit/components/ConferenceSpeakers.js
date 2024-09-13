@@ -23,8 +23,8 @@ const ConferenceSpeakers = props => {
             <Th>{t('Speaker.Name')}</Th>
             <Th>{t('Speaker.Nationality')}</Th>
             <Th>{t('Speaker.Rating')}</Th>
-            <Th>{t('Speaker.MainSpeaker')}</Th>
             <Th>{t('Speaker.PhoneNumber')}</Th>
+            <Th>{t('Speaker.MainSpeaker')}</Th>
             <ThCenteredButton />
           </Tr>
         </Thead>
