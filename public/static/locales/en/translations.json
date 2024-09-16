@@ -95,9 +95,11 @@
     "Name": "Name",
     "Nationality": "Nationality",
     "Rating": "Rating",
-    "MainSpeaker": "Main Speaker"
+    "MainSpeaker": "Main Speaker",
+    "PhoneNumber": "Phone Number"
   },
   "General": {
+    "DeletingSucceeded": "Successfully Deleted!",
     "Buttons": {
       "ApplyFilters": "Apply filters",
       "ResetFilters": "Reset filters",

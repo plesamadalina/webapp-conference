@@ -87,9 +87,11 @@
     "Name": "Nume",
     "Nationality": "Nationalitate",
     "Rating": "Rating",
-    "MainSpeaker": "Orator principal"
+    "MainSpeaker": "Orator principal",
+    "PhoneNumber": "Numar telefon"
   },
   "General": {
+    "DeletingSucceeded": "Sters cu succes!",
     "Buttons": {
       "ApplyFilters": "Aplica filtre",
       "ResetFilters": "Reseteaza filtre",

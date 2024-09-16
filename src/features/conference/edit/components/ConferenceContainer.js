@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer } from 'react'
+import React, { useCallback, useEffect, useReducer, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useHeader } from 'providers/AreasProvider'
 import ConferenceHeader from 'features/conference/ConferenceHeader'
@@ -7,10 +7,11 @@ import { FakeText, IconButton, useToast } from '@totalsoft/rocket-ui'
 import { initialConference, reducer } from '../conferenceState'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useMutation, useQuery } from '@apollo/client'
-import { CONFERENCE_QUERY } from 'features/conference/gql/queries'
+import { CONFERENCE_LIST_QUERY, CONFERENCE_QUERY } from 'features/conference/gql/queries'
 import { UPDATE_CONFERENCE } from 'features/conference/gql/mutations'
 import { type } from 'ramda'
 import { useEmail } from 'hooks/useEmail'
+import { generateDefaultFilters } from 'utils/functions'
 
 const ConferenceContainer = () => {
   const { t } = useTranslation()
@@ -22,12 +23,16 @@ const ConferenceContainer = () => {
   const [conference, dispatch] = useReducer(reducer, initialConference)
   const [email] = useEmail()
 
+  const [filters, setFilters] = useState(generateDefaultFilters())
+
   const [saveConference] = useMutation(UPDATE_CONFERENCE, {
     onCompleted: data => {
-      addToast('Conference saved', 'success')
-      if (isNew) navigate(`/conferences/${data?.saveConference?.id}`)
+      addToast('Conference saved', 'success', { autoClose: 1000 })
+      //if (isNew) navigate(`/conferences/${data?.saveConference?.id}`)
+      navigate('/conferences')
       data => data?.saveConference && dispatch({ type: 'resetData', payload: data?.saveConference })
-    }
+    },
+    refetchQueries: [{ query: CONFERENCE_LIST_QUERY, variables: { filters, userEmail: email } }]
   })
 
   const handleSave = useCallback(() => {

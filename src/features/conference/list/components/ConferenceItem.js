@@ -26,7 +26,7 @@ const ConferenceItem = props => {
   const handleEdit = useCallback(() => navigate(`/conferences/${id}`), [navigate, id])
 
   const [deleteConference] = useMutation(DELETE_CONFERENCE, {
-    onCompleted: () => addToast(t('General.DeletingSucceeded'), 'success'),
+    onCompleted: () => addToast(t('General.DeletingSucceeded'), 'success', { autoClose: 1000 }),
     onError: showError,
     refetchQueries: [{ query: CONFERENCE_LIST_QUERY, variables: { filters, userEmail: email } }]
   })
