@@ -52,6 +52,12 @@ export const reducer = (state, action) => {
         state
       )
     }
+    case 'addExistingSpeaker': {
+      return {
+        ...state,
+        speakers: [...state.speakers, action.payload]
+      }
+    }
     case 'speakerName':
       return modifyPath(['speakers', action.index, 'name'], () => action.payload, state)
     case 'nationality':

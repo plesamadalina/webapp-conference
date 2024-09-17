@@ -101,7 +101,8 @@
     "Nationality": "Nationality",
     "Rating": "Rating",
     "MainSpeaker": "Main Speaker",
-    "PhoneNumber": "Phone Number"
+    "PhoneNumber": "Phone Number",
+    "SelectExisting": "Select existing speaker"
   },
   "General": {
     "DeletingSucceeded": "Successfully Deleted!",

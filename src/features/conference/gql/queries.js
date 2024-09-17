@@ -74,3 +74,16 @@ export const CONFERENCE_QUERY = gql`
   ${Fragments.county}
   ${Fragments.country}
 `
+
+export const SPEAKERS_LIST_QUERY = gql`
+  query SpeakerListQuery {
+    speakerList {
+      id
+      name
+      nationality
+      rating
+      phoneNumber
+      isMainSpeaker
+    }
+  }
+`
