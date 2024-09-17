@@ -59,6 +59,12 @@
     "StatusNotSet": "Nu participi",
     "Edit": "Editeaza",
     "Delete": "Sterge",
+    "NotStarted": "Conferinta nu a inceput",
+    "Ongoing": "Conferinta este in derulare",
+    "Ended": "Conferinta s-a incheiat",
+    "StartsIn": "Conferinta incepe in: ",
+    "CannotJoin": "NU poti participa la conferinta; nu a inceput inca",
+
     "Filters": {
       "StartDate": "Data incepere",
       "EndDate": "Data terminare"

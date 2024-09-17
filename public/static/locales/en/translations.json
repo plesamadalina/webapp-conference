@@ -67,6 +67,11 @@
     "StatusNotSet": "Not attending",
     "Edit": "Edit",
     "Delete": "Delete",
+    "NotStarted": "Conference has not started",
+    "Ongoing": "Conference is ongoing",
+    "Ended": "Conference ended",
+    "CannotJoin": "You CANNOT join the conference; it hasn't started yet",
+    "StartsIn": "Conference starts in: ",
     "Filters": {
       "StartDate": "Start date",
       "EndDate": "End date"
