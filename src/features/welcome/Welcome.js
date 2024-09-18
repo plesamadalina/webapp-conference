@@ -8,12 +8,15 @@ import { validateEmail } from 'utils/functions'
 import { emptyString } from 'utils/constants'
 import { useQuery } from '@apollo/client'
 import { MY_FIRST_QUERY } from './ggl/queries'
+import { isEmail } from '@totalsoft/validations'
+import { useNavigate } from 'react-router-dom'
 
 function Welcome() {
   const { t } = useTranslation()
   const [email, setEmail] = useEmail()
   const [textFieldValue, setTextFieldValue] = useState(email)
   const [isValid, setIsValid] = useState(true)
+  const navigate = useNavigate()
 
   const { loading, data } = useQuery(MY_FIRST_QUERY)
 
@@ -21,7 +24,11 @@ function Welcome() {
     const isEmailValid = validateEmail(textFieldValue)
     setEmail(isEmailValid ? textFieldValue : emptyString)
     setIsValid(isEmailValid)
-  }, [setEmail, textFieldValue])
+
+    if (isEmailValid) {
+      navigate('/conferences')
+    }
+  }, [setEmail, textFieldValue, navigate])
 
   const handleKeyDown = useCallback(
     event => {

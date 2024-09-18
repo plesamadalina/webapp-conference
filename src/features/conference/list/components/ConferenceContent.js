@@ -3,14 +3,17 @@ import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 import attendeeStatus from 'constants/attendeeStatus'
 import { Alert, Grid } from '@mui/material'
-import { Button, Typography } from '@totalsoft/rocket-ui'
+import { Button, Typography, useToast } from '@totalsoft/rocket-ui'
 import { AccessTime as ClockIcon } from '@mui/icons-material' // Import clock icon
+import { useNavigate } from 'react-router-dom'
 
 const ConferenceContent = props => {
   const { conference, onChangeAttendeeStatus } = props
   const { status, startDate, endDate, type, category } = conference
   const { t } = useTranslation()
   const noStatusSet = t('Conferences.StatusNotSet')
+  const addToast = useToast()
+  const navigate = useNavigate()
 
   // State to manage the countdown timer
   const [countdown, setCountdown] = useState(null)
@@ -55,11 +58,15 @@ const ConferenceContent = props => {
 
   const handleJoinClick = useCallback(() => {
     if (!isConferencesStarted) {
-      alert(t('Conferences.CannotJoin'))
+      addToast(t('Conferences.CannotJoin'), 'error', { autoClose: 1000 })
       return
     }
+    navigate(`/conferences/details/${conference.id}`)
+
     onChangeAttendeeStatus(conference?.id, attendeeStatus.Joined)()
-  }, [isConferencesStarted, onChangeAttendeeStatus, conference, t])
+  }, [isConferencesStarted, onChangeAttendeeStatus, conference, navigate, addToast, t])
+
+  const handleDetail = useCallback(() => () => navigate(`/conferences/details/${conference.id}`), [navigate, conference.id])
 
   return (
     <Grid container spacing={1}>
@@ -104,6 +111,9 @@ const ConferenceContent = props => {
               {t('Conferences.Attend')}
             </Button>
           )}
+          <Button right color='purple' size='small' onClick={handleDetail()}>
+            {t('Details')}
+          </Button>
         </Grid>
       </Grid>
     </Grid>

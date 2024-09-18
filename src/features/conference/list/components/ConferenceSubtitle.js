@@ -16,9 +16,12 @@ const ConferenceSubtitle = props => {
         <PermIdentityIcon />
       </Grid>
       <Grid item lg={11}>
-        <Typography>{t('Conferences.Speaker')}</Typography>
-        <Typography>{speaker?.name}</Typography>
+        <Typography component='span' style={{ fontWeight: 'bold' }}>
+          {t('Conferences.Speaker')}: {/* Adding a colon for separation */}
+        </Typography>
+        <Typography component='span'>{speaker?.name}</Typography>
       </Grid>
+
       <Grid item lg={1}>
         <RoomIcon />
       </Grid>

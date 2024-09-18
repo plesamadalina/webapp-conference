@@ -48,6 +48,10 @@ export const CONFERENCE_QUERY = gql`
       speakers {
         ...detailedSpeaker
       }
+      attendees {
+        id
+        attendeeEmail
+      }
     }
     typeList {
       ...type

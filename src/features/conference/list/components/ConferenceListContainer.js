@@ -13,6 +13,7 @@ import { CONFERENCE_LIST_QUERY } from 'features/conference/gql/queries'
 import { useEmail } from 'hooks/useEmail'
 import { useError } from 'hooks/errorHandling'
 import { CHANGE_ATTENDANCE_STATUS } from 'features/conference/gql/mutations'
+import { Box } from '@mui/material'
 
 const ConferenceListContainer = () => {
   const navigate = useNavigate()
@@ -58,17 +59,15 @@ const ConferenceListContainer = () => {
     [changeAttendanceStatus, email]
   )
 
-  
-
   if (loading) {
     return <FakeText lines={10} />
   }
 
   return (
-    <>
+    <Box sx={{ padding: '20px' }}>
       <ConferenceFilters filters={filters} onApplyFilters={handleApplyFilters} />
       <ConferenceList conferences={data?.conferenceList} onChangeAttendeeStatus={handleChangeAttendanceStatus} />
-    </>
+    </Box>
   )
 }
 
