@@ -16,7 +16,7 @@ const ConferenceTitle = props => {
       </Grid>
       <Grid item xs={3} sm={3} lg={3} container justifyContent='flex-end' spacing={1}>
         <Grid item>
-          <IconButton type='edit' onClick={onEdit} title={t('Conferences.Edit')} size='tiny' />
+          <IconButton type='edit' color='primary' onClick={onEdit} title={t('Conferences.Edit')} size='tiny' />
         </Grid>
         <Grid item>
           <IconButton type='delete' onClick={onDelete} title={t('Conferences.Delete')} size='tiny' />

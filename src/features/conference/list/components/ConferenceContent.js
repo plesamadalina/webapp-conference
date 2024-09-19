@@ -72,7 +72,7 @@ const ConferenceContent = props => {
     <Grid container spacing={1}>
       <Grid item xs={12}>
         {/* Display dynamic status */}
-        <Typography variant='subtitle1' color='error'>
+        <Typography variant='subtitle1' color='primary'>
           {currentStatus || status?.name || noStatusSet}
         </Typography>
       </Grid>
@@ -102,16 +102,28 @@ const ConferenceContent = props => {
             </Button>
           )}
           {showWithdraw && (
-            <Button right color='error' size='small' onClick={onChangeAttendeeStatus(conference?.id, attendeeStatus.Withdrawn)}>
+            <Button
+              style={{ marginRight: '8px' }}
+              right
+              color='error'
+              size='small'
+              onClick={onChangeAttendeeStatus(conference?.id, attendeeStatus.Withdrawn)}
+            >
               {t('Conferences.Withdraw')}
             </Button>
           )}
           {showAttend && (
-            <Button right color='info' size='small' onClick={onChangeAttendeeStatus(conference?.id, attendeeStatus.Attended)}>
+            <Button
+              style={{ marginRight: '8px' }}
+              right
+              color='info'
+              size='small'
+              onClick={onChangeAttendeeStatus(conference?.id, attendeeStatus.Attended)}
+            >
               {t('Conferences.Attend')}
             </Button>
           )}
-          <Button right color='purple' size='small' onClick={handleDetail()}>
+          <Button style={{ marginRight: '8px' }} right color='primary' size='small' onClick={handleDetail()}>
             {t('Details')}
           </Button>
         </Grid>

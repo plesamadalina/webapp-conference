@@ -32,21 +32,26 @@ const ConferenceDetails = () => {
   return (
     <>
       {/* Back Button */}
-      <Grid container justifyContent='flex-start' style={{ marginBottom: '20px' }}>
+      <Grid container justifyContent='flex-start' alignItems='center' style={{ marginBottom: '10px' }}>
         <Button
           variant='outlined'
           startIcon={<ArrowBackIcon />}
           onClick={handleBackButton}
-          sx={{ color: '#0099cc', borderColor: '#0099cc', '&:hover': { backgroundColor: '#0099cc', color: '#fff' } }}
+          sx={{
+            color: '#0099cc',
+            borderColor: '#0099cc',
+            '&:hover': { backgroundColor: '#0099cc', color: '#fff' },
+            marginLeft: '10px'
+          }}
         >
           Back
         </Button>
       </Grid>
 
       {/* Conference Name */}
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         <Grid item xs={12}>
-          <Card style={{ margin: '20px' }}>
+          <Card style={{ margin: '10px' }}>
             <CardContent>
               <Typography variant='h4' gutterBottom>
                 {conference.name}
@@ -57,7 +62,7 @@ const ConferenceDetails = () => {
 
         {/* Start Date */}
         <Grid item xs={12} sm={6} md={4}>
-          <Card style={{ margin: '20px' }}>
+          <Card style={{ margin: '10px' }}>
             <CardContent>
               <Grid container alignItems='center'>
                 <AccessTime fontSize='small' color='primary' style={{ marginRight: '4px' }} />
@@ -71,7 +76,7 @@ const ConferenceDetails = () => {
 
         {/* End Date */}
         <Grid item xs={12} sm={6} md={4}>
-          <Card style={{ margin: '20px' }}>
+          <Card style={{ margin: '10px' }}>
             <CardContent>
               <Grid container alignItems='center'>
                 <Event fontSize='small' color='primary' style={{ marginRight: '4px' }} />
@@ -85,7 +90,7 @@ const ConferenceDetails = () => {
 
         {/* Type */}
         <Grid item xs={12} sm={6} md={4}>
-          <Card style={{ margin: '20px' }}>
+          <Card style={{ margin: '10px' }}>
             <CardContent>
               <Grid container alignItems='center'>
                 <Category fontSize='small' color='primary' style={{ marginRight: '4px' }} />
@@ -99,7 +104,7 @@ const ConferenceDetails = () => {
 
         {/* Category */}
         <Grid item xs={12} sm={6} md={4}>
-          <Card style={{ margin: '20px' }}>
+          <Card style={{ margin: '10px' }}>
             <CardContent>
               <Grid container alignItems='center'>
                 <Category fontSize='small' color='primary' style={{ marginRight: '4px' }} />
@@ -113,7 +118,7 @@ const ConferenceDetails = () => {
 
         {/* Location */}
         <Grid item xs={12} sm={6} md={4}>
-          <Card style={{ margin: '20px' }}>
+          <Card style={{ margin: '10px' }}>
             <CardContent>
               <Grid container alignItems='center'>
                 <LocationOn fontSize='small' color='primary' style={{ marginRight: '4px' }} />
@@ -128,7 +133,7 @@ const ConferenceDetails = () => {
 
         {/* Speakers */}
         <Grid item xs={12}>
-          <Card style={{ margin: '20px' }}>
+          <Card style={{ margin: '10px' }}>
             <CardContent>
               <Typography variant='h6' gutterBottom>
                 <People fontSize='small' color='primary' sx={{ marginRight: '10px', marginTop: '20px' }} /> Speakers:
@@ -144,7 +149,7 @@ const ConferenceDetails = () => {
 
         {/* Attendees */}
         <Grid item xs={12}>
-          <Card style={{ margin: '20px' }}>
+          <Card style={{ margin: '10px' }}>
             <CardContent>
               <Typography variant='h6'>Attendees:</Typography>
               {map(
