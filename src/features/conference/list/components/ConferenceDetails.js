@@ -32,7 +32,7 @@ const ConferenceDetails = () => {
   return (
     <>
       {/* Back Button */}
-      <Grid container justifyContent='flex-start' alignItems='center' style={{ marginBottom: '10px' }}>
+      <Grid container justifyContent='flex-start' alignItems='center' style={{ marginTop: '25px' }}>
         <Button
           variant='outlined'
           startIcon={<ArrowBackIcon />}

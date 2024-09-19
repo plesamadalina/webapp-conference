@@ -27,7 +27,7 @@ const ConferenceFilters = props => {
 
   return (
     <>
-      <Card icon={SearchIcon} iconColor='secondary' style={{ maxWidth: '600px', margin: 'auto' }}>
+      <Card icon={SearchIcon} iconColor='secondary' style={{ maxWidth: '600px', marginTop: '25px' }}>
         <Grid container spacing={1} onKeyDown={handleKeyPressed} alignItems='center'>
           <Grid item xs={12} sm={6}>
             <DateTime
@@ -49,7 +49,7 @@ const ConferenceFilters = props => {
           </Grid>
         </Grid>
       </Card>
-      <Grid container spacing={1} style={{ margin: '8px', padding: '5px' }}>
+      <Grid container spacing={1} style={{ marginBottom: '8px', padding: '5px' }}>
         <Grid item>
           <Button size='small' color='primary' onClick={handleApplyClick}>
             {t('General.Buttons.ApplyFilters')}
